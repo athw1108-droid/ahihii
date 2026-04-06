@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hehe</title>
+
+<style>
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:Arial, sans-serif;
+}
+
+body{
+ height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ background:linear-gradient(135deg,#ff758c,#ff7eb3);
+ overflow:hidden;
+}
+
+.container{
+ text-align:center;
+ color:white;
+ z-index:2;
+}
+
+h1{
+ font-size:40px;
+ margin-bottom:20px;
+}
+
+p{
+ font-size:22px;
+ margin-bottom:30px;
+}
+
+button{
+ padding:15px 30px;
+ font-size:18px;
+ border:none;
+ border-radius:30px;
+ cursor:pointer;
+ margin:10px;
+ transition:0.3s;
+}
+
+.yes{
+ background:#ff004c;
+ color:white;
+}
+
+.no{
+ background:white;
+ color:#ff004c;
+ position:relative;
+}
+
+.heart{
+ position:absolute;
+ font-size:20px;
+ color:white;
+ animation:bay 5s linear infinite;
+}
+
+@keyframes bay{
+ 0%{ transform:translateY(100vh); opacity:0; }
+ 100%{ transform:translateY(-10vh); opacity:1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+ <h1>   iu oii 😘</h1>
+ <p>sau này gọi tuoi là chị nháa</p>
+
+ <button class="yes" onclick="dongy()">đồn ý😋 </button>
+ <button class="no" onmouseover="chay()">khôm</button>
+
+ <h2 id="text"></h2>
+</div>
+
+<!-- NHẠC NỀN -->
+<audio id="music" loop>
+  <source src="nhac.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function dongy(){
+ document.getElementById("text").innerHTML="ahihi sau này cứ thế mà làm ná ";
+ document.getElementById("music").play();
+}
+
+function chay(){
+ const btn=document.querySelector(".no");
+ btn.style.position="absolute";
+ btn.style.top=Math.random()*window.innerHeight+"px";
+ btn.style.left=Math.random()*window.innerWidth+"px";
+}
+
+function tim(){
+ const heart=document.createElement("div");
+ heart.classList.add("heart");
+ heart.innerHTML="😝";
+ heart.style.left=Math.random()*100+"vw";
+ document.body.appendChild(heart);
+
+ setTimeout(()=>{
+  heart.remove();
+ },5000)
+}
+
+setInterval(tim,300);
+</script>
+
+</body>
+</html>
